@@ -10,4 +10,13 @@
     <color name="my_green">#12C700</color>
     <color name="my_red">#E54304</color>
     <color name="my_yellow">#FFC107</color>
+
+    // color code of pastel color for random color version
+    <color name="lavender_pink">#FEAED5</color>
+    <color name="dark_pastel_purple">#9A76C9</color>
+    <color name="topaz">#FEC97F</color>
+    <color name="little_boy_blue">#6893DE</color>
+    <color name="baby_blue_eyes">#9FCAE9</color>
+    <color name="platinum">#EAE7E1</color>
+
 </resources>
