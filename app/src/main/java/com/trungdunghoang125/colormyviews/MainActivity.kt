@@ -1,5 +1,6 @@
 package com.trungdunghoang125.colormyviews
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,10 +22,7 @@ class MainActivity : AppCompatActivity() {
             R.id.box_four_text -> view.setBackgroundResource(randomColor())
             R.id.box_five_text -> view.setBackgroundResource(randomColor())
 
-            R.id.red_button -> findViewById<TextView>(R.id.box_three_text).setBackgroundResource(R.color.my_red)
-            R.id.yellow_button -> findViewById<TextView>(R.id.box_four_text).setBackgroundResource(R.color.my_yellow)
-            R.id.green_button -> findViewById<TextView>(R.id.box_five_text).setBackgroundResource(R.color.my_green)
-            else -> view.setBackgroundResource(android.R.color.darker_gray)
+            else -> view.setBackgroundResource(R.color.platinum)
         }
     }
 
@@ -34,17 +32,18 @@ class MainActivity : AppCompatActivity() {
         val boxThreeText = findViewById<TextView>(R.id.box_three_text)
         val boxFourText = findViewById<TextView>(R.id.box_four_text)
         val boxFiveText = findViewById<TextView>(R.id.box_five_text)
-        val redButton = findViewById<Button>(R.id.red_button)
-        val yellowButton = findViewById<Button>(R.id.yellow_button)
-        val greenButton = findViewById<Button>(R.id.green_button)
+
+        val resetButton = findViewById<Button>(R.id.reset_button)
 
         val rootConstraintLayout = findViewById<View>(R.id.constraint_layout)
 
         val clickableView: List<View> = listOf(boxOneText, boxTwoText, boxThreeText,
-                                                boxFourText,boxFiveText, rootConstraintLayout,
-                                                redButton, yellowButton, greenButton)
+                                                boxFourText,boxFiveText, rootConstraintLayout)
         for (item in clickableView) {
             item.setOnClickListener { makeColored(it) }
+        }
+        resetButton.setOnClickListener {
+            resetColor()
         }
     }
 
@@ -58,5 +57,14 @@ class MainActivity : AppCompatActivity() {
 
             else -> R.color.platinum
         }
+    }
+
+    private fun resetColor() {
+        findViewById<TextView>(R.id.box_one_text).setBackgroundResource(R.color.white)
+        findViewById<TextView>(R.id.box_two_text).setBackgroundResource(R.color.white)
+        findViewById<TextView>(R.id.box_three_text).setBackgroundResource(R.color.white)
+        findViewById<TextView>(R.id.box_four_text).setBackgroundResource(R.color.white)
+        findViewById<TextView>(R.id.box_five_text).setBackgroundResource(R.color.white)
+        findViewById<View>(R.id.constraint_layout).setBackgroundResource(R.color.white)
     }
 }
