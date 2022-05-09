@@ -1,17 +1,18 @@
 package com.trungdunghoang125.colormyviews
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.trungdunghoang125.colormyviews.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setListener()
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 
     private fun makeColored(view : View) {
@@ -27,15 +28,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListener() {
-        val boxOneText = findViewById<TextView>(R.id.box_one_text)
-        val boxTwoText = findViewById<TextView>(R.id.box_two_text)
-        val boxThreeText = findViewById<TextView>(R.id.box_three_text)
-        val boxFourText = findViewById<TextView>(R.id.box_four_text)
-        val boxFiveText = findViewById<TextView>(R.id.box_five_text)
+        val boxOneText = binding.boxOneText
+        val boxTwoText = binding.boxTwoText
+        val boxThreeText = binding.boxThreeText
+        val boxFourText = binding.boxFourText
+        val boxFiveText = binding.boxFiveText
 
-        val resetButton = findViewById<Button>(R.id.reset_button)
+        val resetButton = binding.resetButton
 
-        val rootConstraintLayout = findViewById<View>(R.id.constraint_layout)
+        val rootConstraintLayout = binding.constraintLayout
 
         val clickableView: List<View> = listOf(boxOneText, boxTwoText, boxThreeText,
                                                 boxFourText,boxFiveText, rootConstraintLayout)
@@ -60,11 +61,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resetColor() {
-        findViewById<TextView>(R.id.box_one_text).setBackgroundResource(R.color.white)
-        findViewById<TextView>(R.id.box_two_text).setBackgroundResource(R.color.white)
-        findViewById<TextView>(R.id.box_three_text).setBackgroundResource(R.color.white)
-        findViewById<TextView>(R.id.box_four_text).setBackgroundResource(R.color.white)
-        findViewById<TextView>(R.id.box_five_text).setBackgroundResource(R.color.white)
-        findViewById<View>(R.id.constraint_layout).setBackgroundResource(R.color.white)
+        binding.boxOneText.setBackgroundResource(R.color.white)
+        binding.boxTwoText.setBackgroundResource(R.color.white)
+        binding.boxThreeText.setBackgroundResource(R.color.white)
+        binding.boxFourText.setBackgroundResource(R.color.white)
+        binding.boxFiveText.setBackgroundResource(R.color.white)
+        binding.constraintLayout.setBackgroundResource(R.color.white)
     }
 }
