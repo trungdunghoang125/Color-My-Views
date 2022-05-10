@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setListener()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        setListener()
     }
 
     private fun makeColored(view : View) {
@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         val boxThreeText = binding.boxThreeText
         val boxFourText = binding.boxFourText
         val boxFiveText = binding.boxFiveText
-
         val resetButton = binding.resetButton
 
         val rootConstraintLayout = binding.constraintLayout
@@ -61,11 +60,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resetColor() {
-        binding.boxOneText.setBackgroundResource(R.color.white)
-        binding.boxTwoText.setBackgroundResource(R.color.white)
-        binding.boxThreeText.setBackgroundResource(R.color.white)
-        binding.boxFourText.setBackgroundResource(R.color.white)
-        binding.boxFiveText.setBackgroundResource(R.color.white)
-        binding.constraintLayout.setBackgroundResource(R.color.white)
+        binding.apply {
+            boxOneText.setBackgroundResource(R.color.white)
+            boxTwoText.setBackgroundResource(R.color.white)
+            boxThreeText.setBackgroundResource(R.color.white)
+            boxFourText.setBackgroundResource(R.color.white)
+            boxFiveText.setBackgroundResource(R.color.white)
+            constraintLayout.setBackgroundResource(R.color.white)
+        }
     }
 }
